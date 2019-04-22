@@ -25,6 +25,10 @@
 # and donuts(23) returns 'Number of donuts: many'
 def donuts(count):
     """Your code goes here.  Edit this docstring."""
+    if count < 10:
+        return "Number of donuts: " + str(count)
+    else:
+        return "Number of donuts: many"
     return
 
 
@@ -35,6 +39,10 @@ def donuts(count):
 # is less than 2, return instead the empty string.
 def both_ends(s):
     """Your code goes here.  Edit this docstring."""
+    if len(s) > 2:
+        return s[:2] + s[-2:]
+    else:
+        return ""
     return
 
 
@@ -49,7 +57,11 @@ def both_ends(s):
 # where all instances of stra have been replaced by strb.
 def fix_start(s):
     """Your code goes here.  Edit this docstring."""
-    return
+    first_letter = s[:1]
+    rest_of_word = s[1:]
+    replaced = rest_of_word.replace(first_letter, '*')
+    output = first_letter + replaced
+    return output
 
 
 # D. MixUp
@@ -61,7 +73,11 @@ def fix_start(s):
 # Assume a and b are length 2 or more.
 def mix_up(a, b):
     """Your code goes here.  Edit this docstring."""
-    return
+    first_chars_a = a[:2]
+    first_chars_b = b[:2]
+    new_a = first_chars_b + a[2:]
+    new_b = first_chars_a + b[2:]
+    return new_a + " " + new_b
 
 
 # Provided simple test() function used in main() to print
@@ -73,7 +89,7 @@ def test(got, expected):
     else:
         prefix = '  X '
     print('{} got: {} expected: {}'.format(prefix, repr(got), repr(expected)))
-    
+
 
 # Provided main() calls the above functions with interesting inputs,
 # using test() to check if each result is correct or not.
